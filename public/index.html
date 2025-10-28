@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chatbot (OpenRouter Proxy)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      /* Animasi mengetik (titik-titik) */
+      .typing-dots::after {
+        content: " ";
+        display: inline-block;
+        animation: dots 1.5s steps(5, end) infinite;
+      }
+      @keyframes dots {
+        0%, 20% {
+          content: "";
+        }
+        40% {
+          content: ".";
+        }
+        60% {
+          content: "..";
+        }
+        80%, 100% {
+          content: "...";
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-2xl bg-white/90 backdrop-blur-md shadow-2xl rounded-2xl overflow-hidden border border-slate-200">
+      
+      <!-- Header -->
+      <header class="p-5 border-b bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center gap-3">
+        <div class="w-10 h-10 bg-white/20 flex items-center justify-center rounded-full text-xl">💬</div>
+        <div>
+          <h1 class="text-lg font-semibold">AI Chatbot</h1>
+          <p class="text-xs opacity-80">Terhubung via OpenRouter Proxy</p>
+        </div>
+      </header>
+
+      <!-- Chat Area -->
+      <main id="chat" class="p-5 h-[65vh] overflow-y-auto space-y-4 scroll-smooth bg-slate-50">
+        <div class="text-center text-slate-400 text-sm mt-4">
+          👋 Hai! Tanyakan apa saja padaku .
+        </div>
+      </main>
+
+      <!-- Input Form -->
+      <form id="form" class="p-4 border-t bg-white flex gap-3 sticky bottom-0">
+        <input
+          id="input"
+          type="text"
+          placeholder="Ketik pertanyaanmu di sini..."
+          class="flex-1 rounded-full border border-slate-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button
+          class="bg-blue-600 hover:bg-blue-700 active:scale-95 transition text-white px-5 py-2.5 rounded-full font-medium shadow"
+        >
+          Kirim
+        </button>
+      </form>
+    </div>
+
+    <script src="client.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  </body>
+</html>
